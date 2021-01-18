@@ -28,17 +28,15 @@ class XylophoneApp extends StatelessWidget {
       home: Scaffold(
         body: SafeArea(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              createFlatButtons(1, Colors.red),
-              createFlatButtons(2, Colors.orange),
-              createFlatButtons(3, Colors.yellow),
-              createFlatButtons(4, Colors.green),
-              createFlatButtons(5, Colors.teal),
-              createFlatButtons(6, Colors.blue),
-              createFlatButtons(7, Colors.purple),
-            ],
-          ),
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: buttonPropsList
+                  .map(
+                    (buttonProp) => createFlatButtons(
+                      buttonProp['songIndex'],
+                      buttonProp['color'],
+                    ),
+                  )
+                  .toList()),
         ),
       ),
     );
